@@ -1,6 +1,17 @@
 // Market Sensei Color Palette
 // Simple 5-color scheme
 
+
+// OG Colors:
+$red: #FD1015;
+$blue: #0D6EFD;
+$yellow: #FFC65A;
+$orange: #E67E22;
+$green: #1EDD88;
+$gray: #0E0000;
+$light-gray: #F4F4F4;
+
+
 // Primary Colors
 $teal: #008080;           // Main teal green
 $charcoal: #2C3E50;       // Main charcoal grey
@@ -18,16 +29,6 @@ $gray-lighter: $light-gray; // Lighter gray
 $gray-dark: $charcoal;     // Dark gray
 $gray-darker: $charcoal;   // Darker gray
 
-// Original Bootstrap Colors
-$blue: #0D6EFD;           // Bootstrap blue
-$indigo: #6610F2;         // Bootstrap indigo
-$purple: #6F42C1;         // Bootstrap purple
-$pink: #D63384;           // Bootstrap pink
-$yellow: #FFC107;         // Bootstrap yellow
-$orange: #FD7E14;         // Bootstrap orange
-$green: #198754;          // Bootstrap green
-$teal-bs: #20C997;        // Bootstrap teal
-$cyan: #0DCAF0;           // Bootstrap cyan
 
 // Legacy compatibility
 $primary: $teal;
