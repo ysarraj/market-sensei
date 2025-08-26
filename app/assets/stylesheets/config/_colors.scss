@@ -1,68 +1,44 @@
 // Market Sensei Color Palette
-// Professional trading app color scheme - Teal Green & Charcoal Grey
+// Simple 5-color scheme
 
 // Primary Colors
-$primary: #008080;        // Teal green - main brand color
-$primary-light: #00A0A0;  // Lighter teal
-$primary-dark: #006666;   // Darker teal
-
-// Secondary Colors
-$secondary: #2C3E50;      // Charcoal grey - secondary brand color
-$secondary-light: #34495E; // Lighter charcoal
-$secondary-dark: #1B2631;  // Darker charcoal
-
-// Accent Colors
-$accent: #00B3B3;         // Bright teal accent
-$accent-light: #00CCCC;   // Light teal accent
-$accent-dark: #009999;    // Dark teal accent
-
-// Success/Positive Colors
-$success: #008080;        // Teal green for positive trends
-$success-light: #00A0A0;  // Light teal
-$success-dark: #006666;   // Dark teal
-
-// Warning/Alert Colors
-$warning: #F39C12;        // Amber for warnings
-$warning-light: #F1C40F;  // Light amber
-$warning-dark: #E67E22;   // Dark amber
-
-// Danger/Negative Colors
-$danger: #E74C3C;         // Red for negative trends
-$danger-light: #EC7063;   // Light red
-$danger-dark: #C0392B;    // Dark red
+$teal: #008080;           // Main teal green
+$charcoal: #2C3E50;       // Main charcoal grey
 
 // Neutral Colors
-$gray: #2C3E50;           // Charcoal gray
-$gray-light: #34495E;     // Light charcoal
-$gray-lighter: #95A5A6;   // Medium gray
-$gray-dark: #1B2631;      // Dark charcoal
-$gray-darker: #0F1419;    // Very dark charcoal
+$white: #FFFFFF;           // Pure white
+$light-gray: #F5F5F5;     // Light gray background
+$body-color: $charcoal;
+$red: #E74C3C;            // Red for alerts/negative
 
-// Background Colors
-$background: #FAFAFA;     // Off-white background
-$background-alt: #F8F9FA; // Alternative background
-$surface: #FFFFFF;        // Surface color
-$surface-alt: #F5F5F5;    // Alternative surface
+// Gray scale (needed for Bootstrap)
+$gray: $charcoal;          // Main gray
+$gray-light: $light-gray;  // Light gray
+$gray-lighter: $light-gray; // Lighter gray
+$gray-dark: $charcoal;     // Dark gray
+$gray-darker: $charcoal;   // Darker gray
 
-// Text Colors
-$text-primary: #2C3E50;   // Charcoal text color
-$text-secondary: #7F8C8D; // Secondary text color
-$text-muted: #95A5A6;     // Muted text color
-$text-light: #ECF0F1;     // Light text color
+// Original Bootstrap Colors
+$blue: #0D6EFD;           // Bootstrap blue
+$indigo: #6610F2;         // Bootstrap indigo
+$purple: #6F42C1;         // Bootstrap purple
+$pink: #D63384;           // Bootstrap pink
+$yellow: #FFC107;         // Bootstrap yellow
+$orange: #FD7E14;         // Bootstrap orange
+$green: #198754;          // Bootstrap green
+$teal-bs: #20C997;        // Bootstrap teal
+$cyan: #0DCAF0;           // Bootstrap cyan
 
-// Border Colors
-$border: #E5E7EB;         // Light border
-$border-dark: #D1D5DB;    // Darker border
-
-// Chart/Trading Colors
-$chart-up: #008080;       // Teal for upward trends
-$chart-down: #E74C3C;     // Red for downward trends
-$chart-neutral: #95A5A6;  // Gray for neutral trends
-$chart-volume: #2C3E50;   // Charcoal for volume
-
-// Legacy color variables for backward compatibility
-$red: $danger;
-$yellow: $warning;
-$orange: $warning;
-$green: $success;
-$light-gray: $gray-lighter;
+// Legacy compatibility
+$primary: $teal;
+$secondary: $charcoal;
+$success: $teal;
+$danger: $red;
+$warning: $yellow;
+$info: $cyan;
+$background: $light-gray;
+$surface: $white;
+$text-primary: $charcoal;
+$text-secondary: $charcoal;
+$text-muted: $charcoal;
+$border: $light-gray;
