@@ -1,6 +1,8 @@
-// Define variables for your color scheme
+// Market Sensei Color Palette
+// Simple 5-color scheme
 
-// For example:
+
+// OG Colors:
 $red: #FD1015;
 $blue: #0D6EFD;
 $yellow: #FFC65A;
@@ -8,3 +10,36 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
+
+
+// Primary Colors
+$teal: #008080;           // Main teal green
+$charcoal: #2C3E50;       // Main charcoal grey
+
+// Neutral Colors
+$white: #FFFFFF;           // Pure white
+$light-gray: #F5F5F5;     // Light gray background
+$body-color: $charcoal;
+$red: #E74C3C;            // Red for alerts/negative
+
+// Gray scale (needed for Bootstrap)
+$gray: $charcoal;          // Main gray
+$gray-light: $light-gray;  // Light gray
+$gray-lighter: $light-gray; // Lighter gray
+$gray-dark: $charcoal;     // Dark gray
+$gray-darker: $charcoal;   // Darker gray
+
+
+// Legacy compatibility
+$primary: $teal;
+$secondary: $charcoal;
+$success: $teal;
+$danger: $red;
+$warning: $yellow;
+$info: $cyan;
+$background: $light-gray;
+$surface: $white;
+$text-primary: $charcoal;
+$text-secondary: $charcoal;
+$text-muted: $charcoal;
+$border: $light-gray;
