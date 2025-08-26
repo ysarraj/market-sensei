@@ -1,8 +1,9 @@
 # available intervals are:
 # 5min | 15min | 30min | 60min | daily | weekly | monthly
-# 
+#
 # most common time periods are 7, 8, 9, 14, 21
 
+puts "creating rsi settings in the database"
 rsi_7_5min = RelativeStrengthIndex.new
 rsi_7_5min.interval = "5min"
 rsi_7_5min.time_period = 7
