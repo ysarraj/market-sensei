@@ -8,6 +8,10 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :wallet_address,
+                required: true,
+                hint: ("42 characters exactly"),
+                input_html: { autocomplete: "wallet-address" } %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),

@@ -17,6 +17,9 @@
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :wallet_address,
+                required: false,
+                input_html: { autocomplete: "wallet-address" } %>
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
