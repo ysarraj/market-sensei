@@ -183,7 +183,7 @@ puts "creating major DeFi tokens in the database"
 
 # Major DeFi Tokens (Ethereum Mainnet Only)
 defi_tokens = [
-  { name: "Ethereum", symbol: "ETH", token_contract: "0x0000000000000000000000000000000000000000" },
+  { name: "Ethereum", symbol: "WETH", token_contract: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2" },
   { name: "Uniswap", symbol: "UNI", token_contract: "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984" },
   { name: "Aave", symbol: "AAVE", token_contract: "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9" },
   { name: "Compound", symbol: "COMP", token_contract: "0xc00e94cb662c3520282e6f5717214004a7f26888" },
@@ -202,7 +202,7 @@ defi_tokens = [
   { name: "Rocket Pool", symbol: "RPL", token_contract: "0xd33526068d116ce69f19a9ee46f0bd304f21a51f" },
   { name: "StakeWise", symbol: "SWISE", token_contract: "0x48c3399719b582dd63eb5aadf12a40b4c3f52fa2" },
   { name: "Ethereum Name Service", symbol: "ENS", token_contract: "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72" },
-  { name: "Gitcoin", symbol: "GTC", token_contract: "0xde30da39c461d98bb5b3c3b1c8c4c3c3c3c3c3c3" },
+  { name: "Gitcoin", symbol: "GTC", token_contract: "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f" },
   { name: "Badger DAO", symbol: "BADGER", token_contract: "0x3472a5a71965499acd81997a54bba8d852c6e53d" },
   { name: "Fei Protocol", symbol: "FEI", token_contract: "0x956f47f50a910163d8bf957cf5846d573e7f87ca" },
   { name: "Tribe", symbol: "TRIBE", token_contract: "0xc7283b66eb1eb5fb86327f08e1b5416bcd321c86" },
