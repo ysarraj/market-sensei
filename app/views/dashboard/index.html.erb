@@ -12,20 +12,19 @@
         </div>
       </div>
       <div class="card flex-grow-1" style="min-height: 320px;">
-        <div class="card-header fw-semibold">MARKET DATA</div>
+        <div class="card-header fw-semibold"><%= @crypto_details[:name] %> Details</div>
         <div class="card-body p-0">
-          <!-- render 'market_data' partial here -->
-
+          <%= render partial: "marketdata" %>
         </div>
       </div>
     </div>
     <!-- Center: CHART above TX HISTORY -->
     <div class="col-12 col-lg-7 d-flex flex-column">
       <div class="card flex-grow-1 mb-3" style="min-height: 520px;">
-        <div class="card-header fw-semibold">CHART</div>
+        <div class="card-header fw-semibold"><%= @crypto_details[:name] %> Chart</div>
         <div class="card-body p-0">
           <!-- render 'chart' partial here -->
-          <%= render partial: "chart" %>
+          <%= render "chart", chart_symbol: "ETH/USDT" %>
         </div>
       </div>
       <div class="card" style="min-height: 160px;">
