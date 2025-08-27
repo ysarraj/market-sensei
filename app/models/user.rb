@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :alerts
   has_many :transactions
   has_many :chats
+  has_one :preference
   
   validates :wallet_address, presence: :true, length: { is: 42 }
 end
