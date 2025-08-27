@@ -4,20 +4,18 @@ class DashboardController < ApplicationController
 
   def index
     @marketdata = fetch_essential_metrics
+    @crypto_details = fetch_crypto_details('ethereum')
   end
 
   private
 
   def fetch_essential_metrics
     begin
-      # Fetch DeFi market data from Llama.fi
       uri = URI('https://api.llama.fi/overview')
       response = Net::HTTP.get_response(uri)
       
       if response.is_a?(Net::HTTPSuccess)
         data = JSON.parse(response.body)
-        
-        # Extract only essential metrics
         [
           {
             name: "Total TVL",
@@ -39,7 +37,6 @@ class DashboardController < ApplicationController
           }
         ]
       else
-        # Fallback data if API fails
         [
           { name: "Total TVL", daily: "N/A", weekly: "N/A", monthly: "N/A" },
           { name: "Total Volume", daily: "N/A", weekly: "N/A", monthly: "N/A" },
@@ -47,8 +44,6 @@ class DashboardController < ApplicationController
         ]
       end
     rescue => e
-      Rails.logger.error "Error fetching market data: #{e.message}"
-      # Fallback data on error
       [
         { name: "Total TVL", daily: "Error", weekly: "Error", monthly: "Error" },
         { name: "Total Volume", daily: "Error", weekly: "Error", monthly: "Error" },
@@ -57,9 +52,37 @@ class DashboardController < ApplicationController
     end
   end
 
+  def fetch_crypto_details(crypto_slug)
+    begin
+      uri = URI("https://api.llama.fi/overview/fees/#{crypto_slug}")
+      response = Net::HTTP.get_response(uri)
+      
+      if response.is_a?(Net::HTTPSuccess)
+        data = JSON.parse(response.body)
+        {
+          name: data['name'] || crypto_slug.capitalize,
+          slug: crypto_slug,
+          total24h: format_currency(data.dig('total24h') || 0),
+          total7d: format_currency(data.dig('total7d') || 0),
+          total30d: format_currency(data.dig('total30d') || 0),
+          change_1d: data.dig('change_1d') || 0,
+          change_7d: data.dig('change_7d') || 0,
+          change_30d: data.dig('change_30d') || 0,
+          category: data['category'] || 'Unknown',
+          chains: data['chains'] || [crypto_slug.capitalize],
+          logo: data['logo'] || nil,
+          methodology: data.dig('methodology', 'Fees') || 'No methodology available'
+        }
+      else
+        { name: crypto_slug.capitalize, slug: crypto_slug, error: "Data unavailable" }
+      end
+    rescue => e
+      { name: crypto_slug.capitalize, slug: crypto_slug, error: "Error fetching data" }
+    end
+  end
+
   def format_currency(value)
     return "N/A" if value.nil? || value == 0
-    
     if value >= 1_000_000_000
       "#{(value / 1_000_000_000.0).round(2)}B"
     elsif value >= 1_000_000
