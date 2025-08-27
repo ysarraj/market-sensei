@@ -1,40 +1,5 @@
 <% if @marketdata&.any? %>
-<div class="row">
-    <div class="col-md-6">
-        <h5>General Info</h5>
-        <hr>
-        
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead class="table-light">
-                    <tr>
-                        <th>Metric</th>
-                        <th class="text-center">Daily</th>
-                        <th class="text-center">Weekly</th>
-                        <th class="text-center">Monthly</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @marketdata.each do |item| %>
-                        <tr>
-                            <td class="fw-bold"><%= item[:name] %></td>
-                            <td class="text-center">
-                                <span class="badge bg-primary"><%= item[:daily] %></span>
-                            </td>
-                            <td class="text-center">
-                                <span class="badge bg-secondary"><%= item[:weekly] %></span>
-                            </td>
-                            <td class="text-center">
-                                <span class="badge bg-info"><%= item[:monthly] %></span>
-                            </td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <div class="col-md-6">
+<div class="row">    
         <h5>ETH Details</h5>
         <hr>
         
@@ -55,7 +20,6 @@
         <% else %>
             <div class="alert alert-warning">ETH data unavailable</div>
         <% end %>
-    </div>
 </div>
 
 <% else %>
