@@ -1,14 +1,8 @@
 <% if @marketdata&.any? %>
-<div class="row">    
-        <h5>ETH Details</h5>
-        <hr>
-        
+<div class="row">            
         <% if @crypto_details && !@crypto_details[:error] %>
             <div class="table-responsive">
                 <table class="table table-sm">
-                    <tr><td>Name</td><td><%= @crypto_details[:name] %></td></tr>
-                    <tr><td>Slug</td><td><code><%= @crypto_details[:slug] %></code></td></tr>
-                    <tr><td>Category</td><td><%= @crypto_details[:category] %></td></tr>
                     <tr><td>24h Fees</td><td><%= @crypto_details[:total24h] %></td></tr>
                     <tr><td>7d Fees</td><td><%= @crypto_details[:total7d] %></td></tr>
                     <tr><td>30d Fees</td><td><%= @crypto_details[:total30d] %></td></tr>
@@ -18,7 +12,7 @@
                 </table>
             </div>
         <% else %>
-            <div class="alert alert-warning">ETH data unavailable</div>
+            <div class="alert alert-warning"><%= @crypto_details[:name] %> data unavailable</div>
         <% end %>
 </div>
 
