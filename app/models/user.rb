@@ -4,5 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :wallet_address, presence: :true, uniqueness: :true, length: { is: 42 }
+  has_many :alerts
+  has_many :transactions
+  has_many :chats
+  
+  validates :wallet_address, presence: :true, length: { is: 42 }
 end
