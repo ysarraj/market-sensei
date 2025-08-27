@@ -1,50 +1,61 @@
 <% if @marketdata&.any? %>
 <div class="row">
-    <div class="col-md-8">
-        <h5>DeFi Market Overview</h5>
+    <div class="col-12">
+        <h5>Essential Market Metrics</h5>
         <hr>
-        <div class="row">
-            <% @marketdata.each do |item| %>
-                <div class="col-md-6 mb-3">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-3">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="card-title mb-1 text-muted small"><%= item[:name] %></h6>
-                                    <h4 class="mb-0 fw-bold"><%= item[:value] %></h4>
-                                </div>
-                                <% if item[:change] && item[:change] != 0 %>
-                                    <div class="text-end">
-                                        <% change_class = item[:change] > 0 ? 'text-success' : 'text-danger' %>
-                                        <% change_icon = item[:change] > 0 ? '↗' : '↘' %>
-                                        <span class="<%= change_class %> fw-bold">
-                                            <%= change_icon %> <%= number_to_percentage(item[:change], precision: 2) %>
-                                        </span>
-                                    </div>
-                                <% end %>
-                            </div>
+        
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>Metric</th>
+                        <th class="text-center">Daily</th>
+                        <th class="text-center">Weekly</th>
+                        <th class="text-center">Monthly</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @marketdata.each do |item| %>
+                        <tr>
+                            <td class="fw-bold"><%= item[:name] %></td>
+                            <td class="text-center">
+                                <span class="badge bg-primary"><%= item[:daily] %></span>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge bg-secondary"><%= item[:weekly] %></span>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge bg-info"><%= item[:monthly] %></span>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-3">
+                        <h6 class="card-title text-muted small mb-2">Data Source</h6>
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-success me-2">Live</span>
+                            <small class="text-muted">Llama.fi API</small>
                         </div>
                     </div>
                 </div>
-            <% end %>
-        </div>
-    </div>
-    
-    <div class="col-md-4">
-        <h5>Quick Stats</h5>
-        <hr>
-        <div class="list-group list-group-flush">
-            <div class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
-                <span class="text-muted">Data Source</span>
-                <span class="badge bg-primary">Llama.fi</span>
             </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
-                <span class="text-muted">Last Updated</span>
-                <small class="text-muted"><%= Time.current.strftime("%H:%M") %></small>
-            </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
-                <span class="text-muted">Status</span>
-                <span class="badge bg-success">Live</span>
+            
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-3">
+                        <h6 class="card-title text-muted small mb-2">Last Updated</h6>
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-primary me-2">↻</span>
+                            <small class="text-muted"><%= Time.current.strftime("%H:%M") %></small>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
