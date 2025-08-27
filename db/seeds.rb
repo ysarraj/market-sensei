@@ -2,7 +2,7 @@
 # 5min | 15min | 30min | 60min | daily | weekly | monthly
 #
 # most common time periods are 7, 8, 9, 14, 21
-
+puts "Seeding..."
 puts "creating rsi settings in the database"
 rsi_7_5min = RelativeStrengthIndex.new
 rsi_7_5min.interval = "5min"
@@ -219,4 +219,11 @@ end
 
 puts "Created #{defi_tokens.length} Ethereum mainnet DeFi tokens"
 
+puts "Created #{RelativeStrengthIndex.count} RSI seeds"
 
+puts "Creating a user..."
+user1 = User.new(email: "me@here.com", password: "123456", wallet_address: "0x35E0091D67B5e213db857F605c2047cA29A8800d")
+prefs1 = Preference.new(theme: "dark", locale: "en", market: "crypto", toolbar: "true")
+user1.preference = prefs1
+user1.save!
+puts "One user created"
