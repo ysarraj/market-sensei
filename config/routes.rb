@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   resources :transactions, only: [:create]
 
-  resources :alerts
+  resources :alerts do
+    resources :criteria, only: [:create]
+  end
 
   # Nice to Have
   resources :chat, only: [:show, :new, :create]

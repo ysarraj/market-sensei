@@ -6,7 +6,7 @@ class AlertsController < ApplicationController
 
   def show
     @alert = Alert.find(params[:id])
-    @criteria = Criterium.all
+    @criterium = Criterium.new
   end
 
   def new

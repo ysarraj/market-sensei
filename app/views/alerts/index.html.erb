@@ -1,0 +1,9 @@
+<h1>Your Alerts</h1>
+
+<ul class="alert-list">
+  <% @alerts.each do |alert| %>
+    <li class="alert-item">
+      <%= alert.name %>: <%= alert.description %>
+    </li>
+  <% end %>
+</ul>

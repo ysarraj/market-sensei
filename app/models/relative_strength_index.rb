@@ -3,4 +3,8 @@ class RelativeStrengthIndex < ApplicationRecord
 
   validates :interval, presence: :true
   validates :time_period, presence: :true
+
+  def label
+    "Interval: #{interval} / Time Period: #{time_period}"
+  end
 end

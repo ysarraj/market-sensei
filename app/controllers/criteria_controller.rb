@@ -1,4 +1,4 @@
-class CriteriumController < ApplicationController
+class CriteriaController < ApplicationController
 
   def new
     @alert = Alert.find(params[:alert_id])
@@ -9,11 +9,15 @@ class CriteriumController < ApplicationController
   def create
     @alert = Alert.find(params[:alert_id])
     @criterium = Criterium.new(criterium_params)
-    @criterium.alert = @alert
+    # TODO: make the value of @criterium.indicatable_type variable dynamic (maybe from the frontend somehow).
+    @criterium.indicatable_type = "RelativeStrengthIndex"
 
-    # @criterium_find = Criterium.find(params[:id])
-    # @rsi = RelativeStrengthIndex.new(relative_strength_index_params)
-    # @rsi.criterium = @criterium_find
+    if @criterium.save!
+      @criteria_alert = CriteriaAlert.create(alert: @alert, criterium: @criterium)
+      redirect_to alert_path(@alert)
+    else
+      render "alerts/show", status: :unprocessable_content
+    end
   end
 
    def update
