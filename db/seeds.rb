@@ -318,4 +318,4 @@ criteria_alert_join1.save!
 criteria_alert_join2 = CriteriaAlert.new
 criteria_alert_join2.alert = alert1
 criteria_alert_join2.criterium = criteria4
-criteria_alert_join1.save!
+criteria_alert_join2.save!
