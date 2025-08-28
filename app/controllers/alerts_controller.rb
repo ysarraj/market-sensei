@@ -22,12 +22,16 @@ class AlertsController < ApplicationController
   end
 
   def edit
-
+    @alert = Alert.find(params[:id])
   end
 
   def update
-
-  end
+    @alert = Alert.find(params[:id])
+    if @alert.update(alert_params)
+      redirect_to alerts_path
+    else
+      render "edit", status: :unprocessable_entity
+    end
 
   def destroy
     @alert = Alert.find(params[:id])
