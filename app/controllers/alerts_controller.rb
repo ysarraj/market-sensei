@@ -1,11 +1,12 @@
 class AlertsController < ApplicationController
   def index
-    @alert = Alert.all
-    @criterium = Criterium.all
+    @alerts = Alert.all
+    @criteria = Criterium.all
   end
 
   def show
     @alert = Alert.find(params[:id])
+    @criteria = Criterium.all
   end
 
   def new
