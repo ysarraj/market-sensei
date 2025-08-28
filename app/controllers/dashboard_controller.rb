@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
   def index
     @marketdata = fetch_essential_metrics
     @crypto_details = fetch_crypto_details('ethereum')
-    @tokens = Token.all
+    @tokens = Token.all.map {|token| [token.name, token.token_contract]}
   end
 
   private
