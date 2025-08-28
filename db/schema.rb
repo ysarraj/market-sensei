@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_27_085239) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_27_081204) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_27_085239) do
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 
+  create_table "preferences", force: :cascade do |t|
+    t.string "theme"
+    t.string "locale"
+    t.string "market"
+    t.string "toolbar"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_preferences_on_user_id", unique: true
+  end
+
   create_table "relative_strength_indices", force: :cascade do |t|
     t.string "interval"
     t.integer "time_period"
@@ -71,6 +82,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_27_085239) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "symbol"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -107,6 +119,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_27_085239) do
   add_foreign_key "criteria_alerts", "alerts"
   add_foreign_key "criteria_alerts", "criteria"
   add_foreign_key "messages", "chats"
+  add_foreign_key "preferences", "users"
   add_foreign_key "transactions", "tokens", column: "from_token_id"
   add_foreign_key "transactions", "tokens", column: "to_token_id"
   add_foreign_key "transactions", "users"
