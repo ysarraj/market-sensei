@@ -227,3 +227,37 @@ prefs1 = Preference.new(theme: "dark", locale: "en", market: "crypto", toolbar: 
 user1.preference = prefs1
 user1.save!
 puts "One user created"
+
+puts "Preparing to create an alert..."
+puts "Creating 4 signals"
+criteria1 = Criterium.new(operand: "<", value: 20)
+criteria1.indicatable = rsi_7_30min
+criteria1.save!
+
+criteria2 = Criterium.new(operand: ">", value: 80)
+criteria2.indicatable = rsi_7_30min
+criteria2.save!
+
+# One of the following criteria should definitely trigger
+criteria3 = Criterium.new(operand: ">", value: 50)
+criteria3.indicatable = rsi_7_30min
+criteria3.save!
+
+criteria4 = Criterium.new(operand: "<", value: 50)
+criteria4.indicatable = rsi_7_30min
+criteria4.save!
+
+puts "Creating an alert"
+alert1 = Alert.new(name: "RSI Test Alert", description: "This is some description of the alert")
+alert1.user = user1
+alert1.save!
+
+puts "Creating two criteria_alert joiners"
+criteria_alert_join1 = CriteriaAlert.new
+criteria_alert_join1.alert = alert1
+criteria_alert_join1.criterium = criteria3
+criteria_alert_join1.save!
+criteria_alert_join2 = CriteriaAlert.new
+criteria_alert_join2.alert = alert1
+criteria_alert_join2.criterium = criteria4
+criteria_alert_join1.save!
