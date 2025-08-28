@@ -4,10 +4,10 @@
   <div class="row g-3">
     <!-- Left rail: SWAP + MARKET DATA -->
     <div class="col-12 col-lg-2 d-flex flex-column">
-      <div class="card flex-grow-1 mb-3 mb-lg-3" style="min-height: 280px;">
+      <div class="card flex-grow-1 mb-3 mb-lg-3" style="min-height: 220px;">
         <div class="card-header fw-semibold">SWAP</div>
         <div class="card-body p-0">
-        <%= render partial: "swap" %>
+        <%= render partial: "swap", locals: {tokens: @tokens} %>
         </div>
       </div>
       <div class="card flex-grow-1" style="min-height: 320px;">
