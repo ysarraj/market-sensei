@@ -1,7 +1,7 @@
 class AlertsController < ApplicationController
   def index
     @alert = Alert.all
-    @signal = Signal.all
+    @criterium = Criterium.all
   end
 
   def show
@@ -32,10 +32,11 @@ class AlertsController < ApplicationController
     else
       render "edit", status: :unprocessable_entity
     end
+  end
 
   def destroy
     @alert = Alert.find(params[:id])
-    @criteria = Criterium.find(params[:criteria_id])
+    @Criterium = Criterium.find(params[:Criterium_id])
 
     if @alert.destroy
       redirect_to alerts_path
