@@ -1,14 +1,16 @@
-<h1>Alert: <%= @alert.name %></h1>
-<h4>Criteria:
-  <h4>
-    <ol>
-      <% @alert.criteria.each do |criterium| %>
-        <li><%= criterium.indicatable %> <%= criterium.operand %> <%= criterium.value %></li>
+<div class="container">
+  <h1>Alert: <%= @alert.name %></h1>
+  <h4>Criteria:
+    <h4>
+      <ol>
+        <% @alert.criteria.each do |criterium| %>
+          <li><%= criterium.indicatable.name %> <%= criterium.operand %> <%= criterium.value %></li>
+        <% end %>
+      </ol>
+      <%= simple_form_for [@alert, @criterium] do |f| %>
+      <%= f.input :indicatable_id, collection: RelativeStrengthIndex.all, label_method: :label %>
+      <%= f.input :operand %>
+      <%= f.input :value %>
+      <%= f.submit 'Submit' %>
       <% end %>
-    </ol>
-    <%= simple_form_for [@alert, @criterium] do |f| %>
-    <%= f.input :indicatable_id, collection: RelativeStrengthIndex.all, label_method: :label %>
-    <%= f.input :operand %>
-    <%= f.input :value %>
-    <%= f.submit 'Submit' %>
-    <% end %>
+</div>
