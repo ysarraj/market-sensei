@@ -12,7 +12,7 @@ class CheckCriteriaJob < ApplicationJob
       if criteria.size == 1
         puts "One criteria"
         if check_criterium(criteria.first) 
-          puts "Singe criterium is true"
+          puts "Single criterium is true"
         end
       elsif criteria.size == 2
         puts "Two criteria"
