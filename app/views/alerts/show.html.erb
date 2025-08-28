@@ -1,2 +1,7 @@
 <h1>Alert: <%= @alert.name %></h1>
-
+<h4>Criteria:<h4>
+<ol>
+  <% @criteria.each do |criterium| %>
+  <%= <li>criterium.indicatable criterium.operand criterium.value</li> %>
+  <% end %>
+</ol>
