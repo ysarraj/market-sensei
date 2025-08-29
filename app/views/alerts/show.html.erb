@@ -17,12 +17,45 @@
       </ol>
       <div class="mt-5">
         <%= simple_form_for [@alert, @criterium] do |f| %>
-          <%= f.input :indicatable_id, collection: RelativeStrengthIndex.all, label_method: :label %>
+          <!-- First value -->
+          <div id="first-select">
+            <%= f.input :first_value_id,
+                        collection: RelativeStrengthIndex.all,
+                        label: "Choose first value",
+                        prompt: "Select first value" %>
+          </div>
+
+          <!-- Second value (hidden at first) -->
+          <div id="second-select" style="display:none;">
+            <%= f.input :second_value_id,
+                        collection: RelativeStrengthIndex.all,
+                        label: "Choose second value",
+                        prompt: "Select second value" %>
+          </div>
+
           <%= f.input :operand, collection: Criterium::OPERANDS, prompt: "Select a condition" %>
           <%= f.input :value %>
           <%= f.submit "Add Criteria", class: "btn btn-primary" %>
         <% end %>
+
       </div>
       <%= link_to "My Alerts", alerts_path, class: "btn btn-secondary mt-4 mb-5" %>
       <%= link_to "Dashboard", dashboard_index_path, class: "btn btn-secondary mt-4 mb-5" %>
     </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const firstSelect = document.querySelector("#criterium_first_value_id");
+    const secondSelectWrapper = document.querySelector("#second-select");
+
+    if (firstSelect) {
+      firstSelect.addEventListener("change", () => {
+        if (firstSelect.value) {
+          secondSelectWrapper.style.display = "block";
+        } else {
+          secondSelectWrapper.style.display = "none";
+        }
+      });
+    }
+  });
+</script>

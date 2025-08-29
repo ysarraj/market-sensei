@@ -46,7 +46,11 @@ class CriteriaController < ApplicationController
 
   private
 
+#   def criterium_params
+#     params.require(:criterium).permit(:operand, :value, :indicatable_id)
+#   end
+# end
   def criterium_params
-    params.require(:criterium).permit(:operand, :value, :indicatable_id)
+    params.require(:criterium).permit(:operand, :value, :first_value_id, :second_value_id)
   end
 end
