@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" data-controller="getprice">
   <div class="col-md-10 col-lg-12">
     <!-- Input Token Card -->
     <div class="card shadow-sm mb-2 border-0" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
@@ -6,9 +6,9 @@
         <h6 class="card-title text-uppercase fw-bold mb-2 fs-6" style="word-break: break-word; line-height: 1.2;">Input Token</h6>
           <%= simple_form_for Transaction.new do |f| %>
         <div class="align-items-center gap-2 mb-2">
-          <%= f.input :from_token, collection: tokens, label: false %>
+          <%= f.input :from_token, collection: tokens, label: false, input_html: { data: { getprice_target: "srcToken" } } %>
           <div class="flex-grow-1 bg-white bg-opacity-10 rounded-2 p-2 text-center">
-            <span class="fw-bold"><%= f.input :from_token_unit, label: false %></span>
+            <span class="fw-bold"><%= f.input :from_token_unit, label: false, input_html: { data: { getprice_target: "srcAmount", action: "input->getprice#getprice" } } %></span>
           </div>
         </div>
         <div class="text-center">
@@ -22,13 +22,13 @@
       <div class="card-body text-white p-3">
         <h6 class="card-title text-uppercase fw-bold mb-2 fs-6" style="word-break: break-word; line-height: 1.2;">Output Token</h6>
         <div class="align-items-center gap-2 mb-2">
-          <%= f.input :to_token, collection: tokens, label: false %>
+          <%= f.input :to_token, collection: tokens, label: false, input_html: { data: { getprice_target: "destToken" } } %>
           <div class="flex-grow-1 bg-white bg-opacity-10 rounded-2 p-2 text-center">
-            <span class="fw-bold"><%= 0.00 %></span>
+            <span class="fw-bold" data-getprice-target="destAmount"><%= 0.00 %></span>
           </div>
         </div>
         <div class="text-center">
-          <small class="text-white-50">≈ $0.00</small>
+          <small class="text-white-50"></small>
         </div>
       </div>
     </div>
