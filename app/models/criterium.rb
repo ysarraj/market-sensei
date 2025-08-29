@@ -1,6 +1,6 @@
 class Criterium < ApplicationRecord
   belongs_to :indicatable, polymorphic: true
-  belongs_to :alert, dependent: :destroy
+  belongs_to :alert
 
   # Criterium::OPERANDS
   OPERANDS = [">", "<"]
