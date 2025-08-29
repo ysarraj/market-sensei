@@ -9,11 +9,12 @@ export default class extends Controller {
 
   getprice(){
     if (!this.srcTokenTarget.value && !this.destTokenTarget.value) return
-    const url = `https://api.paraswap.io/prices/?srcToken=${this.srcTokenTarget.value}&destToken=${this.destTokenTarget.value}&amount=${this.srcAmountTarget.value*1000}&srcDecimals=3&destDecimals=3&side=SELL&network=1&version=5`
+    const srcToken = this.srcTokenTarget.value.split(",")[0]
+    const destToken = this.destTokenTarget.value.split(",")[0]
+    const url = `https://api.paraswap.io/prices/?srcToken=${srcToken}&destToken=${destToken}&amount=${this.srcAmountTarget.value*1000}&srcDecimals=3&destDecimals=3&side=SELL&network=1&version=5`
     fetch(url).then(response=>response.json()).then(data=>{
       const destAmount = Number(data.priceRoute.destAmount) /1000
-      this.destAmountTarget.innerText = `${destAmount} ${this.destTokenTarget.label}`
-      console.log(destAmount)
+      this.destAmountTarget.innerText = `${destAmount} ${this.destTokenTarget.value.split(",")[1]}`
     })
   }
 }
