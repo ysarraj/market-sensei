@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_28_065711) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_29_020339) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,16 +38,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_28_065711) do
     t.bigint "indicatable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["indicatable_type", "indicatable_id"], name: "index_criteria_on_indicatable"
-  end
-
-  create_table "criteria_alerts", force: :cascade do |t|
     t.bigint "alert_id", null: false
-    t.bigint "criterium_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["alert_id"], name: "index_criteria_alerts_on_alert_id"
-    t.index ["criterium_id"], name: "index_criteria_alerts_on_criterium_id"
+    t.index ["alert_id"], name: "index_criteria_on_alert_id"
+    t.index ["indicatable_type", "indicatable_id"], name: "index_criteria_on_indicatable"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -117,8 +110,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_28_065711) do
 
   add_foreign_key "alerts", "users"
   add_foreign_key "chats", "users"
-  add_foreign_key "criteria_alerts", "alerts"
-  add_foreign_key "criteria_alerts", "criteria"
+  add_foreign_key "criteria", "alerts"
   add_foreign_key "messages", "chats"
   add_foreign_key "preferences", "users"
   add_foreign_key "transactions", "tokens", column: "from_token_id"
