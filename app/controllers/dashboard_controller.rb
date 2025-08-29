@@ -13,7 +13,7 @@ class DashboardController < ApplicationController
     begin
       uri = URI('https://api.llama.fi/overview')
       response = Net::HTTP.get_response(uri)
-      
+
       if response.is_a?(Net::HTTPSuccess)
         data = JSON.parse(response.body)
         [
@@ -56,7 +56,7 @@ class DashboardController < ApplicationController
     begin
       uri = URI("https://api.llama.fi/overview/fees/#{crypto_slug}")
       response = Net::HTTP.get_response(uri)
-      
+
       if response.is_a?(Net::HTTPSuccess)
         data = JSON.parse(response.body)
         {

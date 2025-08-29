@@ -15,8 +15,10 @@ class AlertsController < ApplicationController
 
   def create
     @alert = Alert.new(alert_params)
+    @alert.user = current_user
+    @alert.save!
     if @alert.save
-      redirect_to alerts_path
+      redirect_to alert_path(@alert)
     else
       render "new", status: :unprocessable_content
     end

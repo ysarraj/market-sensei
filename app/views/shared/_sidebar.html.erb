@@ -1,9 +1,14 @@
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Alerts</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Alerts</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-      List of Alerts
+    <div>
+      <%= link_to "Create Alert", new_alert_path, class: "btn btn-primary" %>
+    </div>
+    <div class="mt-3">
+      <%= link_to "My Alerts", alerts_path, class: "btn btn-secondary" %>
+    </div>
   </div>
 </div>

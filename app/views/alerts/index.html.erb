@@ -1,9 +1,26 @@
-<h1>Your Alerts</h1>
-
-<ul class="alert-list">
-  <% @alerts.each do |alert| %>
-    <li class="alert-item">
-      <%= alert.name %>: <%= alert.description %>
-    </li>
-  <% end %>
-</ul>
+<div class="container mt-4">
+  <h1>My Alerts</h1>
+  <ol class="alert-list">
+    <% @alerts.each do |alert| %>
+      <div class="d-flex align-items-center justify-content-between mt-4 mb-4">
+        <div class="col-sm-6 col-lg-9">
+          <%= link_to alert_path(alert), class: "text-decoration-none text-secondary" do %>
+            <li class="alert-item fs-4">
+              <span class="fw-bold"><%= alert.name %> -</span> <%= alert.description %>
+            </li>
+          <% end %>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <%= link_to alert_path(alert), { data: {turbo_method: :delete, turbo_confirm: "Delete this alert?"} } do %> <i class="fa-solid fa-trash text-secondary fs-4"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </ol>
+  <div>
+    <%= link_to "Create Alert", new_alert_path, class: "btn btn-primary mt-3" %>
+  </div>
+  <div>
+    <%= link_to "Dashboard", dashboard_index_path, class: "btn btn-secondary mt-4 mb-5" %>
+  </div>
+</div>
