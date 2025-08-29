@@ -260,7 +260,7 @@ defi_tokens = [
   { name: "Gitcoin", symbol: "GTC", token_contract: "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f" },
   { name: "Badger DAO", symbol: "BADGER", token_contract: "0x3472a5a71965499acd81997a54bba8d852c6e53d" },
   { name: "Fei Protocol", symbol: "FEI", token_contract: "0x956f47f50a910163d8bf957cf5846d573e7f87ca" },
-  { name: "USD Coin", symbol: "USDC", token_contract: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48" },
+  { name: "Tether USD", symbol: "USDT", token_contract: "0xdac17f958d2ee523a2206206994597c13d831ec7" },
 ]
 #just a small comment
 defi_tokens.each do |token|
