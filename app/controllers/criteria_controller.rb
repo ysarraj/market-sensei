@@ -31,7 +31,7 @@ class CriteriaController < ApplicationController
   end
 
   def destroy
-    @criterium = criterium.find(params[:id])
+    @criterium = Criterium.find(params[:id])
     @alert = Alert.find(params[:alert_id])
     # @criterium.alert = @alert
     # @alert.criterium = @criterium
