@@ -3,5 +3,5 @@ class Alert < ApplicationRecord
   has_many :criteria
 
   validates :user_id, presence: :true
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
 end
