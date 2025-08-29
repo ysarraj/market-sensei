@@ -9,7 +9,7 @@
               <li><%= criterium.indicatable.name %> <%= criterium.operand %> <%= criterium.value %> </li>
             </div>
             <div class="col-sm-6 col-lg-10">
-              <%= link_to alert_path(@alert, criterium), { data: {turbo_method: :delete, turbo_confirm: "Delete this alert criteria?"}} do %> <i class="fa-solid fa-trash text-secondary"></i>
+              <%= link_to alert_criterium_path(@alert, criterium), { data: {turbo_method: :delete, turbo_confirm: "Delete this alert criteria?"}} do %> <i class="fa-solid fa-trash text-secondary"></i>
               <% end %>
             </div>
           </div>
