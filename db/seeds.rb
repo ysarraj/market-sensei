@@ -279,12 +279,17 @@ puts "Created #{defi_tokens.length} Ethereum mainnet DeFi tokens"
 
 puts "Created #{RelativeStrengthIndex.count} RSI seeds"
 
-puts "Creating a user..."
-user1 = User.new(email: "me@here.com", password: "123456", wallet_address: "0x35E0091D67B5e213db857F605c2047cA29A8800d")
+puts "Creating some user..."
+user1 = User.new(email: "temp_mail_for_stuff@icloud.com", password: "123456", wallet_address: "0x35E0091D67B5e213db857F605c2047cA29A8800d")
 prefs1 = Preference.new(theme: "dark", locale: "en", market: "crypto", toolbar: "true")
 user1.preference = prefs1
 user1.save!
 puts "One user created"
+
+user2 = User.new(email: "senseiboy.xnlqp@slmail.me", password: "098765", wallet_address: "0x35E0091D67B5e213db857F605c2047cA29A8800d")
+user2.preference = prefs1
+user2.save!
+puts "#{User.count} users created"
 
 puts "Preparing to create an alert..."
 puts "Creating 4 signals"
@@ -305,10 +310,18 @@ criteria4 = Criterium.new(operand: "<", value: 50)
 criteria4.indicatable = rsi_7_30min
 criteria4.save!
 
-puts "Creating an alert"
+puts "Creating 3 alerts"
 alert1 = Alert.new(name: "RSI Test Alert", description: "This is some description of the alert")
 alert1.user = user1
 alert1.save!
+
+alert2 = Alert.new(name: "RSI Test Alert 2", description: "This is some description of the alert")
+alert2.user = user1
+alert2.save!
+
+alert3 = Alert.new(name: "RSI Test Alert 3", description: "This is some description of the alert")
+alert3.user = user2
+alert3.save!
 
 puts "Creating two criteria_alert joiners"
 criteria_alert_join1 = CriteriaAlert.new
