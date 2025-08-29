@@ -261,7 +261,7 @@ defi_tokens = [
   { name: "Badger DAO", symbol: "BADGER", token_contract: "0x3472a5a71965499acd81997a54bba8d852c6e53d" },
   { name: "Fei Protocol", symbol: "FEI", token_contract: "0x956f47f50a910163d8bf957cf5846d573e7f87ca" },
   { name: "Tribe", symbol: "TRIBE", token_contract: "0xc7283b66eb1eb5fb86327f08e1b5416bcd321c86" },
-  { name: "Olympus", symbol: "OHM", token_contract: "0x383518188c0c6d7730d91b2c03a03c837814a899" }
+  { name: "Tether USD", symbol: "USDT", token_contract: "0xdac17f958d2ee523a2206206994597c13d831ec7" }
 ]
 
 defi_tokens.each do |token|
