@@ -39,7 +39,6 @@ class AlertsController < ApplicationController
 
   def destroy
     @alert = Alert.find(params[:id])
-    @Criterium = Criterium.find(params[:Criterium_id])
 
     if @alert.destroy
       redirect_to alerts_path

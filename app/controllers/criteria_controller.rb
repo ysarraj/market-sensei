@@ -33,9 +33,6 @@ class CriteriaController < ApplicationController
   def destroy
     @criterium = Criterium.find(params[:id])
     @alert = Alert.find(params[:alert_id])
-    # @criterium.alert = @alert
-    # @alert.criterium = @criterium
-    raise
 
     if @criterium.destroy
       redirect_to alert_path(@alert)

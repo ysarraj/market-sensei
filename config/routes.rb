@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :transactions, only: [:create]
 
   resources :alerts do
-    resources :criteria, only: [:create]
+    resources :criteria, only: [:create, :destroy]
   end
 
   # Nice to Have
