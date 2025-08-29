@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'notifications@marketsensei.com'
+  default from: 'alert@marketsensei.com'
   layout "mailer"
 end

@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@marketsensei.com'
+  default from: 'alert@marketsensei.com'
 
   def alert_email
     @user = params[:user]
