@@ -13,19 +13,19 @@ class CheckCriteriaJob < ApplicationJob
         puts "One criteria"
         if check_criterium(criteria.first) 
           puts "Single criterium is true"
-          UserMailer.with(user: alert.user).notification_email.deliver_later
+          UserMailer.with(user: alert.user).alert_email.deliver_later
         end
       elsif criteria.size == 2
         puts "Two criteria"
         if check_criterium(criteria.first) && check_criterium(criteria.last)
           puts "Both criteria are true"
-          UserMailer.with(user: alert.user).notification_email.deliver_later
+          UserMailer.with(user: alert.user).alert_email.deliver_later
         end
       elsif criteria.size == 3
         puts "Three criteria"
         if check_criterium(criteria.first) && check_criterium(criteria[1]) && check_criterium(criteria.last)
           puts "All three criteria are true"
-          UserMailer.with(user: alert.user).notification_email.deliver_later
+          UserMailer.with(user: alert.user).alert_email.deliver_later
         end
       end
     end
