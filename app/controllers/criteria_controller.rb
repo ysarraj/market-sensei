@@ -22,6 +22,7 @@ class CriteriaController < ApplicationController
 
    def update
     @criterium = Criterium.find(params[:id])
+    @alert = Alert.find(params[:alert_id])
     if @criterium.update(criterium_params)
       redirect_to alerts_path
     else
@@ -32,9 +33,12 @@ class CriteriaController < ApplicationController
   def destroy
     @criterium = criterium.find(params[:id])
     @alert = Alert.find(params[:alert_id])
+    # @criterium.alert = @alert
+    # @alert.criterium = @criterium
+    raise
 
-    if @bookmark.destroy
-      redirect_to alerts_path
+    if @criterium.destroy
+      redirect_to alert_path(@alert)
     else
       render "alert/show", status: :unprocessable_content
     end
@@ -45,8 +49,4 @@ class CriteriaController < ApplicationController
   def criterium_params
     params.require(:criterium).permit(:operand, :value, :indicatable_id)
   end
-
-  # def relative_strength_index_params
-  #   params.require(:relative_strength_index).permit(:interval, :time_period)
-  # end
 end

@@ -1,6 +1,8 @@
 class Criterium < ApplicationRecord
   belongs_to :indicatable, polymorphic: true
 
-  validates :operand, presence: :true
+  # Criterium::OPERANDS
+  OPERANDS = [">", "<"]
+  validates :operand, presence: :true, inclusion: { in: OPERANDS }
   validates :value, presence: :true
 end
